@@ -1,0 +1,1076 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Android Studio Template(模板)开发, Android Video ijkplayer Blog Justin">
+    <meta name="description" content="引言Android Studio提供的代码模板可帮助我们减少重复编写同一段代码的负担，而且可以遵循优化后的设计和标准。AS采用的是Apache FreeMarker模板引擎。在网上，关于模板开发的资料比较少，而且Studio版本较低，也缺少">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Android Studio Template(模板)开发 | I&#39;M Justin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">I'M Justin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">I'M Justin</div>
+        <div class="logo-desc">
+            
+            ...
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/linw992" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/linw992" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Android Studio Template(模板)开发</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-04-19
+                </div>
+                
+
+                
+
+                
+
+                
+				
+                
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>Android Studio提供的代码模板可帮助我们减少重复编写同一段代码的负担，而且可以遵循优化后的设计和标准。AS采用的是<a href="http://freemarker.org/" target="_blank" rel="noopener">Apache FreeMarker</a>模板引擎。<br>在网上，关于模板开发的资料比较少，而且Studio版本较低，也缺少实际开发中很多功能的示例（比如说Studio在加入kotlin后，我们怎么生成kotlin的模板）。这篇文章将基于TemplateBuilder模板插件，简化模板生成的难度。<br><strong>环境：</strong><br>Android Studio 3.1.1<br>TemplateBuilder 2.0</p>
+<h1 id="一、TemplateBuilder"><a href="#一、TemplateBuilder" class="headerlink" title="一、TemplateBuilder"></a>一、TemplateBuilder</h1><p>简单介绍下TemplateBuilder的使用。</p>
+<h2 id="1-插件安装"><a href="#1-插件安装" class="headerlink" title="1.插件安装"></a>1.插件安装</h2><p>在Studio菜单栏选择【File】-【Settings】，在左侧菜单中选择【Plugins】，点击【Browse repositories】。在弹出框中输入TemplateBuilder，点击安装并重启Studio后生效。<br><img src="https://img-blog.csdn.net/20180419115829829?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h2 id="2-创建模板"><a href="#2-创建模板" class="headerlink" title="2.创建模板"></a>2.创建模板</h2><h4 id="1-定义模板："><a href="#1-定义模板：" class="headerlink" title="1.定义模板："></a>1.定义模板：</h4><p>这里定义了activityName、textViewName变量，之后在生成模板时，由用户输入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> $</span>&#123;activityName&#125; extends AppCompatActivity &#123;</span><br><span class="line">    <span class="keyword">private</span> TextView $&#123;textViewName&#125;;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-生成模板"><a href="#2-生成模板" class="headerlink" title="2.生成模板"></a>2.生成模板</h4><p>选中模板文件，按下【ALT + T】（或在Tools下选择Generate Template），配置模板信息<br><img src="https://img-blog.csdn.net/201804191240559?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h5 id="属性说明："><a href="#属性说明：" class="headerlink" title="属性说明："></a>属性说明：</h5><ul>
+<li><strong>Template Category 对应模板的分类，对应选择导入模板时的模板分类，这里默认值是电脑的用户名。</strong></li>
+<li><strong>Template Name 对应模板名称，对应选择导入模板时的模板名称，默认值是当前的Project名称。</strong></li>
+<li><strong>Template Description 对应模板描述信息，对应导入模板时弹出的导入界面的文字描述，默认为空。</strong></li>
+<li><strong>Template Folder 对应生成模板所存放的位置，如果是Mac操作系统则默认为/Applications/Android Studio.app/Contents/plugins/android/lib/templates， Windows系统的话由于差异比较大，就默认为空了，可以自行配置[Android Studio安装目录]/plugins/android/lib/templates（这里只需要配置一次即可，插件将自动保存该位置）。</strong></li>
+<li><strong>Input data 配置模板变量</strong><br>在【Configure Template Data】下点击【add】配置刚才模板中定义的变量，配置完毕后点击【Finish】。<br><img src="https://img-blog.csdn.net/20180419125012700?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>重启Studio后就可使用该自定义模板。<br><img src="https://img-blog.csdn.net/20180419125226632?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><h5 id="关于Input-data的使用，先解释下每个属性对应的含义"><a href="#关于Input-data的使用，先解释下每个属性对应的含义" class="headerlink" title="关于Input data的使用，先解释下每个属性对应的含义"></a>关于Input data的使用，先解释下每个属性对应的含义</h5></li>
+<li><strong>id 变量名，必须和模板中使用的变量名对应，必填</strong></li>
+<li><strong>name 变量简介，必填</strong></li>
+<li><strong>type 变量类型，string和boolean两种，通过下拉框选择，必填</strong></li>
+<li><strong>default 变量对应的默认值，选填</strong></li>
+<li><strong>help 添加该变量时的提示信息，选填</strong><h1 id="二、定义模板"><a href="#二、定义模板" class="headerlink" title="二、定义模板"></a>二、定义模板</h1>这里我使用TemplateBuilder插件生成mvp的模板。通过修改相关的属性，实现Activity和layout动态生成，并在AndroidManifest.xml中注册。最后添加kotlin的模板配置，这样模板最终完成。<h2 id="1-创建Java模板"><a href="#1-创建Java模板" class="headerlink" title="1.创建Java模板"></a>1.创建Java模板</h2>首先创建一个MVP的Activity，将动态的属性声明为变量。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> $&#123;packageName&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> com.blackbox.medicalpension.common.mvp.base.BaseCommonActivity;</span><br><span class="line"><span class="keyword">import</span> com.blackbox.medicalpension.common.mvp.mvp.BasePresenter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.jetbrains.annotations.Nullable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> $</span>&#123;activityClass&#125; extends BaseCommonActivity&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.$&#123;layoutName&#125;);</span><br><span class="line">		initTitleWithBack(<span class="string">"$&#123;titleName&#125;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;BasePresenter&lt;?&gt;&gt; createPresenter() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+创建对应的Layout布局文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    xmlns:app&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res-auto&quot;</span><br><span class="line">    xmlns:tools&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;tools&quot;</span><br><span class="line">    android:layout_width&#x3D;&quot;match_parent&quot;</span><br><span class="line">    android:layout_height&#x3D;&quot;match_parent&quot;</span><br><span class="line">    android:background&#x3D;&quot;@color&#x2F;white&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;include</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;include_layout&quot;</span><br><span class="line">        layout&#x3D;&quot;@layout&#x2F;lin_title&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf&#x3D;&quot;parent&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;android.support.constraint.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-模板生成"><a href="#2-模板生成" class="headerlink" title="2.模板生成"></a>2.模板生成</h2><p>选中两个模板文件，点击【ALT + T】，弹出【Configure Template Data】窗口。定义activityClass、layoutName、titleName三个变量，并【Finish】，生成模板。<br><img src="https://img-blog.csdn.net/20180419130815864?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>模板文件存放在…\Android Studio\plugins\android\lib\templates下<br><img src="https://img-blog.csdn.net/20180419131020722?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>模板文件后缀名都是以【.ftl】结尾。</p>
+<ul>
+<li>globals.xml.ftl 全局变量文件 存放的是一些全局变量</li>
+<li>recipe.xml.ftl 配置要引用的模板路径以及生成文件的路径</li>
+<li>template.xml 模板的配置信息,以及要输入的参数.定义了模板的流程框架 基本结构</li>
+<li>template_blank_activity.png 显示的缩略图（只是展示用）</li>
+<li>LinActivity.java.ftl Activity模板文件</li>
+</ul>
+<h4 id="1-修改配置"><a href="#1-修改配置" class="headerlink" title="1.修改配置"></a>1.修改配置</h4><p>进入到…\Android Studio\plugins\android\lib\templates\linw9目录下</p>
+<h5 id="1-修改template-xml文件"><a href="#1-修改template-xml文件" class="headerlink" title="1.修改template.xml文件"></a>1.修改template.xml文件</h5><p>为方便用户输入Activity名称或Layout名称，自动提示Layout或Activity名称，需要在文件中添加两个属性：<br>constraints=”class|unique|nonempty”<br>suggest=”${layoutToActivity(layoutName)}”<br>suggest=”${activityToLayout(activityClass)}”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;template</span><br><span class="line">    format&#x3D;&quot;5&quot;</span><br><span class="line">    revision&#x3D;&quot;5&quot;</span><br><span class="line">    name&#x3D;&quot;LinMvpActivity&quot;</span><br><span class="line">    minApi&#x3D;&quot;7&quot;</span><br><span class="line">    minBuildApi&#x3D;&quot;14&quot;</span><br><span class="line">    description&#x3D;&quot;Mvp Activity&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;category value&#x3D;&quot;linw9&quot; &#x2F;&gt;</span><br><span class="line">    &lt;formfactor value&#x3D;&quot;Mobile&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- input data --&gt;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &lt;parameter</span><br><span class="line">        id&#x3D;&quot;activityClass&quot;</span><br><span class="line">        name&#x3D;&quot;Activity Name&quot;</span><br><span class="line">        type&#x3D;&quot;string&quot;</span><br><span class="line">		constraints&#x3D;&quot;class|unique|nonempty&quot;</span><br><span class="line">		suggest&#x3D;&quot;$&#123;layoutToActivity(layoutName)&#125;&quot;</span><br><span class="line">        default&#x3D;&quot;MvpActivity&quot;</span><br><span class="line">        help&#x3D;&quot;&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;parameter</span><br><span class="line">        id&#x3D;&quot;layoutName&quot;</span><br><span class="line">        name&#x3D;&quot;Layout Name&quot;</span><br><span class="line">        type&#x3D;&quot;string&quot;</span><br><span class="line">		constraints&#x3D;&quot;layout|unique|nonempty&quot;</span><br><span class="line">        suggest&#x3D;&quot;$&#123;activityToLayout(activityClass)&#125;&quot;</span><br><span class="line">        default&#x3D;&quot;activity_mvp&quot;</span><br><span class="line">        help&#x3D;&quot;&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;parameter</span><br><span class="line">        id&#x3D;&quot;titleName&quot;</span><br><span class="line">        name&#x3D;&quot;Title Name&quot;</span><br><span class="line">        type&#x3D;&quot;string&quot;</span><br><span class="line">        default&#x3D;&quot;Title&quot;</span><br><span class="line">        help&#x3D;&quot;&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 128x128 thumbnails relative to com.puke.template.xml --&gt;</span><br><span class="line">    &lt;thumbs&gt;</span><br><span class="line">        &lt;!-- default thumbnail is required --&gt;</span><br><span class="line">        &lt;thumb&gt;template_cover.png&lt;&#x2F;thumb&gt;</span><br><span class="line">    &lt;&#x2F;thumbs&gt;</span><br><span class="line"></span><br><span class="line">    &lt;globals file&#x3D;&quot;globals.xml.ftl&quot; &#x2F;&gt;</span><br><span class="line">    &lt;execute file&#x3D;&quot;recipe.xml.ftl&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2-修改AndroidManifest-xml文件"><a href="#2-修改AndroidManifest-xml文件" class="headerlink" title="2.修改AndroidManifest.xml文件"></a>2.修改AndroidManifest.xml文件</h5><p>进入到…\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity\root 目录下，打开AndroidManifest.xml.ftl文件，修改内容让Studio自动注册Activity。需要注意的是：需要对AndroidManifest进行代码格式化（Format），不然使用的时候Studio可能会提示Merge。<br>只针对Java代码的模板到此结束，重新启动Studio后即可使用该模板。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;manifest xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    package&#x3D;&quot;$&#123;packageName&#125;&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;application&gt;</span><br><span class="line">        &lt;activity android:name&#x3D;&quot;$&#123;packageName&#125;.$&#123;activityClass&#125;&quot;&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;&#x2F;activity&gt;</span><br><span class="line">    &lt;&#x2F;application&gt;</span><br><span class="line">&lt;&#x2F;manifest&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-增加Kotlin模板"><a href="#3-增加Kotlin模板" class="headerlink" title="3.增加Kotlin模板"></a>3.增加Kotlin模板</h5><p>在网上，我没有查找到关于Kotlin模板配置的相关文章，这里给大家讲解下我的方法。<br>我是通过学习Studio自带的模板，从中找到了配置Kotlin模板的方法，仅供大家参考。</p>
+<h6 id="1-创建Kotlin模板"><a href="#1-创建Kotlin模板" class="headerlink" title="1.创建Kotlin模板"></a>1.创建Kotlin模板</h6><p>进入到…\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity\root\src\app_package目录下，直接创建kotlin模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package $&#123;packageName&#125;</span><br><span class="line"></span><br><span class="line">import android.os.Bundle</span><br><span class="line">import com.blackbox.medicalpension.common.mvp.base.BaseCommonActivity</span><br><span class="line">import com.blackbox.medicalpension.common.mvp.mvp.BasePresenter</span><br><span class="line"></span><br><span class="line">import kotlinx.android.synthetic.main.$&#123;layoutName&#125;.*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class $&#123;activityClass&#125; : BaseCommonActivity()&#123;</span><br><span class="line">	</span><br><span class="line">	override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.$&#123;layoutName&#125;)</span><br><span class="line">        initTitleWithBack(&quot;$&#123;titleName&#125;&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">     override fun createPresenter(): MutableList&lt;BasePresenter&lt;*&gt;&gt; ?&#123;</span><br><span class="line">        return null</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-修改recipe-xml-ftl"><a href="#2-修改recipe-xml-ftl" class="headerlink" title="2.修改recipe.xml.ftl"></a>2.修改recipe.xml.ftl</h6><p>进入到…\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity目录下，打开recipe.xml.ftl<br>将java改为${ktOrJavaExt}变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;recipe&gt;</span><br><span class="line"></span><br><span class="line">	&lt;instantiate from&#x3D;&quot;root&#x2F;src&#x2F;app_package&#x2F;LinActivity.$&#123;ktOrJavaExt&#125;.ftl&quot;</span><br><span class="line">		to&#x3D;&quot;$&#123;escapeXmlAttribute(srcOut)&#125;&#x2F;$&#123;activityClass&#125;.$&#123;ktOrJavaExt&#125;&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">	&lt;instantiate from&#x3D;&quot;root&#x2F;res&#x2F;layout&#x2F;activity_lin.xml.ftl&quot;</span><br><span class="line">		to&#x3D;&quot;$&#123;escapeXmlAttribute(resOut)&#125;&#x2F;layout&#x2F;$&#123;layoutName&#125;.xml&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">     &lt;merge from&#x3D;&quot;root&#x2F;AndroidManifest.xml.ftl&quot;</span><br><span class="line">           to&#x3D;&quot;$&#123;escapeXmlAttribute(manifestOut)&#125;&#x2F;AndroidManifest.xml&quot; &#x2F;&gt;</span><br><span class="line">		   </span><br><span class="line">&lt;&#x2F;recipe&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="3-修改globals-xml-ftl"><a href="#3-修改globals-xml-ftl" class="headerlink" title="3.修改globals.xml.ftl"></a>3.修改globals.xml.ftl</h6><p>进入到…\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity目录下，打开globals.xml.ftl<br>添加ktOrJavaExt变量声明：<br><img src="https://img-blog.csdn.net/20180419134151226?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;globals&gt;</span><br><span class="line">	&lt;#assign generateKotlin&#x3D;(((includeKotlinSupport!false) || (language!&#39;Java&#39;)?string &#x3D;&#x3D; &#39;Kotlin&#39;))&gt;</span><br><span class="line">    &lt;global id&#x3D;&quot;generateKotlin&quot; type&#x3D;&quot;boolean&quot; value&#x3D;&quot;$&#123;generateKotlin?string&#125;&quot; &#x2F;&gt;</span><br><span class="line">	&lt;global id&#x3D;&quot;ktOrJavaExt&quot; type&#x3D;&quot;string&quot; value&#x3D;&quot;$&#123;generateKotlin?string(&#39;kt&#39;,&#39;java&#39;)&#125;&quot; &#x2F;&gt;</span><br><span class="line">	</span><br><span class="line">    &lt;global id&#x3D;&quot;resOut&quot; value&#x3D;&quot;$&#123;resDir&#125;&quot; &#x2F;&gt;</span><br><span class="line">    &lt;global id&#x3D;&quot;srcOut&quot; value&#x3D;&quot;$&#123;srcDir&#125;&#x2F;$&#123;slashedPackageName(packageName)&#125;&quot; &#x2F;&gt;</span><br><span class="line">    &lt;global id&#x3D;&quot;relativePackage&quot; value&#x3D;&quot;&lt;#if relativePackage?has_content&gt;$&#123;relativePackage&#125;&lt;#else&gt;$&#123;packageName&#125;&lt;&#x2F;#if&gt;&quot; &#x2F;&gt;</span><br><span class="line">	</span><br><span class="line">	 </span><br><span class="line">&lt;&#x2F;globals&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="4-结束"><a href="#4-结束" class="headerlink" title="4.结束"></a>4.结束</h6><p>重启Studio后，就可以生成Java或Kotlin的代码。对于写的不好的地方，希望大家多提建议。</p>
+<h1 id="三、其它"><a href="#三、其它" class="headerlink" title="三、其它"></a>三、其它</h1><p>源码地址：<a href="https://download.csdn.net/download/u010987039/10360074" target="_blank" rel="noopener">https://download.csdn.net/download/u010987039/10360074</a><br>码云地址：<a href="https://gitee.com/personlin/emplate_java_kotlin" target="_blank" rel="noopener">https://gitee.com/personlin/emplate_java_kotlin</a><br>GitHub地址：<a href="https://github.com/linw992/Template" target="_blank" rel="noopener">https://github.com/linw992/Template</a></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.ocrnote.com" rel="external nofollow noreferrer">Justin Lin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.ocrnote.com/2018/04/19/Template-%E6%A8%A1%E6%9D%BF-%E5%BC%80%E5%8F%91/">https://blog.ocrnote.com/2018/04/19/Template-%E6%A8%A1%E6%9D%BF-%E5%BC%80%E5%8F%91/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.ocrnote.com" target="_blank">Justin Lin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/06/06/%E7%BE%8E%E5%9B%A2Walle%E4%BD%BF%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="美团Walle使用">
+                        
+                        <span class="card-title">美团Walle使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Walle打包相关链接GitHub：https://github.com/Meituan-Dianping/walle个人代码：https://github.com/linw992/Walle-VasDolly/tree/walle  
+介
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-06-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Justin Lin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/11/27/%E8%A7%A3%E5%86%B3EditText%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7%E6%90%9E%E5%AE%9A/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="'解决EditText右对齐兼容问题，一个属性搞定'">
+                        
+                        <span class="card-title">'解决EditText右对齐兼容问题，一个属性搞定'</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1.问题描述在使用EditText时，根据产品设计，某些地方需要让文字右对齐显示，光标默认也显示在最右边。这个时候我们自然而然想到设置android:gravity=”right” 这个属性，运行在模拟器跟自己的手机上都没出现问题。然后测试
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-11-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Justin Lin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://blog.ocrnote.com" target="_blank">Justin Lin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/linw992" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/linw992" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:631344199@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=631344199" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 631344199" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
