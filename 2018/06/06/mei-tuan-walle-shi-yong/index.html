@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="&#39;解决EditText右对齐兼容问题，一个属性搞定&#39;, Android Video ijkplayer Blog Justin">
-    <meta name="description" content="1.问题描述在使用EditText时，根据产品设计，某些地方需要让文字右对齐显示，光标默认也显示在最右边。这个时候我们自然而然想到设置android:gravity=”right” 这个属性，运行在模拟器跟自己的手机上都没出现问题。然后测试">
+    <meta name="keywords" content="美团Walle使用, Android Video ijkplayer Blog Justin">
+    <meta name="description" content="Walle打包相关链接GitHub：https://github.com/Meituan-Dianping/walle个人代码：https://github.com/linw992/Walle-VasDolly/tree/walle  
+介">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>&#39;解决EditText右对齐兼容问题，一个属性搞定&#39; | I&#39;M Justin</title>
+    <title>美团Walle使用 | I&#39;M Justin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -26,7 +27,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -303,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">&#39;解决EditText右对齐兼容问题，一个属性搞定&#39;</h1>
+                    <h1 class="description center-align post-title">美团Walle使用</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +438,17 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2017-11-27
+                    2018-06-06
                 </div>
                 
 
                 
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
                 
 
                 
@@ -454,11 +460,98 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>在使用EditText时，根据产品设计，某些地方需要让文字右对齐显示，光标默认也显示在最右边。这个时候我们自然而然想到设置android:gravity=”right” 这个属性，运行在模拟器跟自己的手机上都没出现问题。然后测试拿着手机测试，突然跟你说这个地方有问题，当你看到错位后的界面一脸懵逼。这尼M是怎么出现的？</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI3MTI0ODEyMDQ0?x-oss-process=image/format,png" alt=""></p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h2><p>百度了下，找到两个解决办法：</p>
-<h4 id="1-在布局中添加android-textCursorDrawable-”-null”–-gt-部分手机有效"><a href="#1-在布局中添加android-textCursorDrawable-”-null”–-gt-部分手机有效" class="headerlink" title="1. 在布局中添加android:textCursorDrawable=”@null”–&gt;部分手机有效"></a>1. 在布局中添加android:textCursorDrawable=”@null”–&gt;部分手机有效</h4><h4 id="2-TextView和EditText共用，控制光标位置-–-gt-这也太麻烦了，有没得更好的方法"><a href="#2-TextView和EditText共用，控制光标位置-–-gt-这也太麻烦了，有没得更好的方法" class="headerlink" title="2. TextView和EditText共用，控制光标位置                      –&gt;这也太麻烦了，有没得更好的方法"></a>2. TextView和EditText共用，控制光标位置                      –&gt;这也太麻烦了，有没得更好的方法</h4><p> 既然百度暂时解决不了这个问题，那去官网看看相应的API吧。哈哈，找到两个属性可能会有用。<br> android:textDirection=”rtl” ，试了下不行<br> android:layoutDirection=”rtl” ，居然可以，问题完美解决<br> <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI3MTMzNzMxOTA5?x-oss-process=image/format,png" alt=""><br> <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI3MTMzNzU0NTYz?x-oss-process=image/format,png" alt=""></p>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>下载地址：<a href="http://download.csdn.net/download/u010987039/10134195" target="_blank" rel="noopener">http://download.csdn.net/download/u010987039/10134195</a><br>如果解决了大家的问题，记得多评论啊，让更多的人看到。</p>
+                <h1 id="Walle打包"><a href="#Walle打包" class="headerlink" title="Walle打包"></a>Walle打包</h1><h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p>GitHub：<a href="https://github.com/Meituan-Dianping/walle" target="_blank" rel="noopener">https://github.com/Meituan-Dianping/walle</a><br>个人代码：<a href="https://github.com/linw992/Walle-VasDolly/tree/walle" target="_blank" rel="noopener">https://github.com/linw992/Walle-VasDolly/tree/walle</a>  </p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Walle（瓦力）：Android Signature V2 Scheme签名下的新一代渠道包打包神器<br>瓦力通过在Apk中的APK Signature Block区块添加自定义的渠道信息来生成渠道包，从而提高了渠道包生成效率，可以作为单机工具来使用，也可以部署在HTTP服务器上来实时处理渠道包Apk的升级网络请求。<br>两种使用方式：<br>Gradle插件方式，方便快速集成<br>命令行方式，最大化满足各种自定义需求</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>根目录 build.gradle</strong></p>
+<pre><code>buildscript {
+    dependencies {
+        classpath &#39;com.meituan.android.walle:plugin:1.1.6&#39;
+    }
+}</code></pre><p><strong>APP目录 build.gradle</strong></p>
+<pre><code>apply plugin: &#39;walle&#39;
+
+dependencies {
+    compile &#39;com.meituan.android.walle:library:1.1.6&#39;
+}
+
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File(&quot;${project.buildDir}/outputs/channels&quot;)
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = &#39;${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk&#39;
+    // 渠道配置文件
+//    channelFile = new File(&quot;D:/External/WalleApplication/channel&quot;)
+//    print(&quot;${project.getProjectDir()}&quot;)   //D:\External\WalleApplication\app
+//    channelFile = new File(&quot;${project.getProjectDir()}/channel&quot;)
+
+    // 渠道&amp;额外信息配置文件，与channelFile互斥  都存在时configFile优先执行
+//    configFile = new File(&quot;D:/External/WalleApplication/config.json&quot;)
+//    print(&quot;${project.getProjectDir()}&quot;)   //D:\External\WalleApplication\app
+    configFile = new File(&quot;${project.getProjectDir()}/config.json&quot;)
+
+}</code></pre><p><strong>apkFileNameFormat：定制渠道包的APK的文件名称, 默认值为’${appName}-${buildType}-${channel}.apk’</strong><br>可使用以下变量:<br>     projectName - 项目名字<br>     appName - App模块名字<br>     packageName - applicationId (App包名packageName)<br>     buildType - buildType (release/debug等)<br>     channel - channel名称 (对应渠道打包中的渠道名字)<br>     versionName - versionName (显示用的版本号)<br>     versionCode - versionCode (内部版本号)<br>     buildTime - buildTime (编译构建日期时间)<br>     fileSHA1 - fileSHA1 (最终APK文件的SHA1哈希值)<br>     flavorName - 编译构建 productFlavors 名  </p>
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><h3 id="1）执行walle-cli命令"><a href="#1）执行walle-cli命令" class="headerlink" title="1）执行walle-cli命令"></a>1）执行walle-cli命令</h3><p>链接：<a href="https://github.com/Meituan-Dianping/walle/blob/master/walle-cli/README.md" target="_blank" rel="noopener">https://github.com/Meituan-Dianping/walle/blob/master/walle-cli/README.md</a><br>查看渠道信息<br>java -jar walle-cli-all.jar show   app\build\outputs\channels\app-com.lin.walle-360cn-release-v1.0-1-20180423-105856.apk<br>写入渠道 生成app-release_meituan.apk文件<br>java -jar walle-cli-all.jar put -c meituan app\build\outputs\apk\release\app-release.apk<br>写入渠道和额外信息<br>java -jar walle-cli-all.jar put -c meituan -e buildtime=20161212,hash=xxxxxxx app\build\outputs\apk\release\app-release.apk<br>指定输出文件<br>java -jar walle-cli-all.jar put -c meituan app\build\outputs\apk\release\app-release.apk app\build\outputs\apk\release\app-release111.apk  </p>
+<h3 id="2）Gradle配置和命令"><a href="#2）Gradle配置和命令" class="headerlink" title="2）Gradle配置和命令"></a>2）Gradle配置和命令</h3><p>channelFile只支持渠道写入，如果想插入除渠道以外的其他信息，请在walle配置中使用configFile  </p>
+<h4 id="1-配置"><a href="#1-配置" class="headerlink" title="1.配置"></a>1.配置</h4><p>channelFile方式：  </p>
+<pre><code>walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File(&quot;${project.buildDir}/outputs/channels&quot;);
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = &#39;${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk&#39;;
+    // 渠道配置文件 channel放在APP下
+    channelFile = new File(&quot;${project.getProjectDir()}/channel&quot;)
+   print(&quot;${project.getProjectDir()}&quot;)   //D:\External\WalleApplication\app
+   //channelFile = new File(&quot;D:/External/WalleApplication/channel&quot;)
+
+}</code></pre><p>configFile方式：都存在时configFile优先执行  </p>
+<pre><code>walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File(&quot;${project.buildDir}/outputs/channels&quot;);
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = &#39;${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk&#39;;
+    // 渠道配置文件
+    configFile = new File(&quot;${project.getProjectDir()}/config.json&quot;)
+}</code></pre><h4 id="2-打包"><a href="#2-打包" class="headerlink" title="2.打包"></a>2.打包</h4><p>全部打包<br>gradlew clean assembleReleaseChannels<br>使用临时configFile config.json生成全部渠道包:<br>gradlew clean assembleReleaseChannels -PconfigFile=D:\External\WalleApplication\config.json<br>gradlew clean assembleReleaseChannels -PchannelFile=D:\External\WalleApplication\config.json<br>生成指定渠道   config.json和channel中的都可以<br>gradlew clean assembleReleaseChannels -PchannelList=meituan<br>支持 productFlavors<br>示例channel_product1<br>gradlew clean assemblechannel_product1ReleaseChannels  </p>
+<h2 id="获取渠道信息"><a href="#获取渠道信息" class="headerlink" title="获取渠道信息"></a>获取渠道信息</h2><pre><code>String channel = WalleChannelReader.getChannel(this.getApplicationContext());
+ChannelInfo channelInfo= WalleChannelReader.getChannelInfo(this.getApplicationContext());
+if (channelInfo != null) {
+   String channel = channelInfo.getChannel();
+   Map&lt;String, String&gt; extraInfo = channelInfo.getExtraInfo();
+}
+// 或者也可以直接根据key获取
+String value = WalleChannelReader.get(context, &quot;buildtime&quot;);</code></pre><h1 id="加固后重打包"><a href="#加固后重打包" class="headerlink" title="加固后重打包"></a>加固后重打包</h1><p>使用360加固后，会出现渠道信息被擦除的情况。这个时候需要我们重新对加固后的安装包进行重新签名。  </p>
+<h2 id="ProtectedApkResignerForWalle"><a href="#ProtectedApkResignerForWalle" class="headerlink" title="ProtectedApkResignerForWalle"></a>ProtectedApkResignerForWalle</h2><p><strong><a href="https://github.com/Jay-Goo/ProtectedApkResignerForWalle" target="_blank" rel="noopener">官方脚本地址</a></strong>   </p>
+<h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><ul>
+<li>按照config.py文件中的注释改成自己项目配置</li>
+<li>将已经加固好的包【未签名的包，请不要使用加固客户端签名工具】放到脚本工具根目录下，即app-release.encrypted.apk</li>
+<li>各种渠道的定义是在channel这个文件中，请根据项目情况修改</li>
+<li>运行命令 python ApkResigner.py,即可自动生成所有渠道包。</li>
+</ul>
+<h3 id="支持平台：（需要python环境）"><a href="#支持平台：（需要python环境）" class="headerlink" title="支持平台：（需要python环境）"></a>支持平台：（需要python环境）</h3><p>Windows (Test)<br>Mac OS (Test)<br>Linux<br>注意：python2.x版本正常，python3.x待测试<br><a href="https://www.python.org/ftp/python/" target="_blank" rel="noopener">Python官方下载地址</a></p>
+<h2 id="打包失败"><a href="#打包失败" class="headerlink" title="打包失败"></a>打包失败</h2><ol>
+<li>保证你Android程序的compileSdKVersion 和 buildToosVersion 版本相同</li>
+<li>建议将jdk升级到1.8</li>
+<li>保证自己本地打包签名可以正常运行</li>
+<li>保证配置的相关路径正确，编码格式为UTF-8，不要带异常字符。</li>
+<li>Android SDK buidtools请使用25.0+版本，越新越好。</li>
+<li>检查安装的Python版本<br>检查Python版本是否是Python2.X（由于我的电脑之前安装的是Python 3.6.3，所以没有使用官方推荐的Python 2的环境。）  </li>
+<li>检查config.py配置<br>检查config.py中涉及到的文件地址，测试文件地址是否存在。  </li>
+</ol>
+<p>如果上述步骤正确，还是出现打包失败的问题。那么就是ApkResigner.py脚本在我们当前的环境下  <strong>（Windows+Python3）</strong>  不能够正常的运行。<br>执行python ApkResigner.py命令，报错：</p>
+<pre><code>Zip alignment utility
+Copyright (C) 2009 The Android Open Source Project
+
+Usage: zipalign [-f] [-p] [-v] [-z] &lt;align&gt; infile.zip outfile.zip
+       zipalign -c [-p] [-v] &lt;align&gt; infile.zip
+
+  &lt;align&gt;: alignment in bytes, e.g. &#39;4&#39; provides 32-bit alignment
+  -c: check alignment only (does not modify file)
+  -f: overwrite existing outfile.zip
+  -p: memory page alignment for stored shared object files
+  -v: verbose output
+  -z: recompress using Zopfli
+Unexpected parameter(s) after input APK (C:\Studio)
+Error: Unable to access jarfile C:\Studio</code></pre><p><img src="https://img-blog.csdnimg.cn/20190108112033755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>出现Zip alignment utility，应该是执行对齐命令zipalign 时，语法有问题。<br>为了方便排查出错的原因，我在ApkResigner.py脚本中添加了输出代码。发现是由于路径没有添加双引号，导致执行zipalign、签名、写入命令时出错。<strong>在脚本文件中对路径添加双引号后，便解决。</strong><a href="https://github.com/linw992/Walle-VasDolly/blob/walle/walle-py/ApkResigner.py" target="_blank" rel="noopener">修改后的脚本地址 </a> </p>
 
             </div>
             <hr/>
@@ -484,7 +577,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.ocrnote.com/2017/11/27/%E8%A7%A3%E5%86%B3EditText%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7%E6%90%9E%E5%AE%9A/">https://blog.ocrnote.com/2017/11/27/%E8%A7%A3%E5%86%B3EditText%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7%E6%90%9E%E5%AE%9A/</a>
+                    <a href="https://blog.ocrnote.com/2018/06/06/mei-tuan-walle-shi-yong/">https://blog.ocrnote.com/2018/06/06/mei-tuan-walle-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -689,24 +782,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/04/19/Template-%E6%A8%A1%E6%9D%BF-%E5%BC%80%E5%8F%91/">
+                <a href="/2018/08/15/guo-ji-hua-i18n-shu-zi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Android Studio Template(模板)开发">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="国际化(i18n)-数字">
                         
-                        <span class="card-title">Android Studio Template(模板)开发</span>
+                        <span class="card-title">国际化(i18n)-数字</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引言Android Studio提供的代码模板可帮助我们减少重复编写同一段代码的负担，而且可以遵循优化后的设计和标准。AS采用的是Apache FreeMarker模板引擎。在网上，关于模板开发的资料比较少，而且Studio版本较低，也缺少
+                            背景平常在项目中，经常会遇到String和Double间的转换，或者将Double、Float等类型格式化后显示。当我们的项目是直接在国内使用的时候，通过String.format、Double.parseDouble等方法转换通常不会出现
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-04-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-15
                         </span>
                         <span class="publish-author">
                             
@@ -726,24 +819,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2017/04/20/Android%E9%9B%86%E6%88%90Cordova%E4%B8%8ECrosswalk/">
+                <a href="/2018/04/19/template-mo-ban-kai-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Android集成Cordova与Crosswalk'">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Android Studio Template(模板)开发">
                         
-                        <span class="card-title">Android集成Cordova与Crosswalk'</span>
+                        <span class="card-title">Android Studio Template(模板)开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ##1. 介绍###1.1 CordovaCordova是贡献给Apache后的开源项目，是从PhoneGap中抽出的核心代码，是驱动PhoneGap的核心引擎。Adobe将会继续以Cordova加上PhoneGap Build和Adobe
+                            引言Android Studio提供的代码模板可帮助我们减少重复编写同一段代码的负担，而且可以遵循优化后的设计和标准。AS采用的是Apache FreeMarker模板引擎。在网上，关于模板开发的资料比较少，而且Studio版本较低，也缺少
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-04-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-19
                             </span>
                         <span class="publish-author">
                             

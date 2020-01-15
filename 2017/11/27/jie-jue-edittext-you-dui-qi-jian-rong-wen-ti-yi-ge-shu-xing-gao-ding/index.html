@@ -4,10 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="记录：Handler、HandlerThread, Android Video ijkplayer Blog Justin">
-    <meta name="description" content="Handler相关类
-Looper:  一个线程可以产生一个 Looper 对象，由它来管理此线程里的 MessageQueue( 消息队列 )和对消息进行循环。
-Handler:  你可以构造 Handler 对象来与 Looper 沟通">
+    <meta name="keywords" content="&#39;解决EditText右对齐兼容问题，一个属性搞定&#39;, Android Video ijkplayer Blog Justin">
+    <meta name="description" content="1.问题描述在使用EditText时，根据产品设计，某些地方需要让文字右对齐显示，光标默认也显示在最右边。这个时候我们自然而然想到设置android:gravity=”right” 这个属性，运行在模拟器跟自己的手机上都没出现问题。然后测试">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +13,7 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>记录：Handler、HandlerThread | I&#39;M Justin</title>
+    <title>&#39;解决EditText右对齐兼容问题，一个属性搞定&#39; | I&#39;M Justin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -28,7 +26,7 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -305,12 +303,12 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">记录：Handler、HandlerThread</h1>
+                    <h1 class="description center-align post-title">&#39;解决EditText右对齐兼容问题，一个属性搞定&#39;</h1>
                 </div>
             </div>
         </div>
@@ -439,12 +437,17 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-01-04
+                    2017-11-27
                 </div>
                 
 
                 
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    281
+                </div>
                 
 
                 
@@ -456,36 +459,11 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h1><h2 id="相关类"><a href="#相关类" class="headerlink" title="相关类"></a>相关类</h2><ul>
-<li>Looper:  一个线程可以产生一个 Looper 对象，由它来管理此线程里的 MessageQueue( 消息队列 )和对消息进行循环。</li>
-<li>Handler:  你可以构造 Handler 对象来与 Looper 沟通，以便 push 新消息到 MessageQueue 里 ; 或者接收 Looper 从 MessageQueue 取出 所送来的消息。</li>
-<li>Message Queue( 消息队列 ): 用来存放线程放入的消息。</li>
-<li>Message：是线程间通讯的消息载体。两个码头之间运输货物，Message充当集装箱的功能，里面可以存放任何你想传递的消息。<h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2></li>
-<li>一个Thread对应多个Handler，一个Thread对应一个Looper和MessageQueue</li>
-<li>Handler与Thread共享Looper和MessageQueue</li>
-<li>Message只是消息的载体，将会被发送到与线程绑定的唯一的MessageQueue中，并且被与线程绑定的唯一的Looper分发，被与其自身绑定的Handler消费。<h2 id="调用流程"><a href="#调用流程" class="headerlink" title="调用流程"></a>调用流程</h2></li>
-</ul>
-<ol>
-<li>当我们调用handler.sendMessage(msg)方法发送一个Message时，实际上这个Message是发送到与当前线程绑定的一个MessageQueue中</li>
-<li>然后与当前线程绑定的Looper将会不断的从MessageQueue中取出新的Message</li>
-<li>调用msg.target.dispathMessage(msg)方法将消息分发到与Message绑定的handler.handleMessage()方法中。<h1 id="HandlerThread"><a href="#HandlerThread" class="headerlink" title="HandlerThread"></a>HandlerThread</h1>在线程(Thread)中，默认是没有Looper，需要手动添加。<br>官方提供HandlerThread类，方便创建一个拥有Looger实例的线程，结合Handler在子线程中执行耗时或延时等任务。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Handy class for starting a new thread that has a looper. </span><br><span class="line">The looper can then be used to create handler classes. </span><br><span class="line">Note that start() must still be called.</span><br></pre></td></tr></table></figure>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2></li>
-</ol>
-<ul>
-<li>HandlerThread本质上是一个线程类，它继承了Thread</li>
-<li>拥有自己的消息队列，它不会干扰或阻塞UI线程</li>
-<li>拥有自己的内部Looper对象，可以进行looper循环</li>
-<li>通过获取HandlerThread的looper对象传递给Handler对象，可以在handleMessage方法中执行异步任务</li>
-<li>创建HandlerThread后必须先调用HandlerThread.start()方法，Thread会先调用run方法，创建Looper对象。<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class MainActivity : AppCompatActivity() &#123;</span><br><span class="line"></span><br><span class="line">    private lateinit var handlerThread: HandlerThread</span><br><span class="line">    private lateinit var handler: Handler</span><br><span class="line"></span><br><span class="line">    override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">        handlerThread &#x3D; HandlerThread(javaClass.simpleName)</span><br><span class="line">        handlerThread.start()</span><br><span class="line">        handler &#x3D; Handler(handlerThread.looper) &#123;</span><br><span class="line">            &#x2F;&#x2F;处理消息</span><br><span class="line">            true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override fun onDestroy() &#123;</span><br><span class="line">        super.onDestroy()</span><br><span class="line">        handler.removeCallbacksAndMessages(null)</span><br><span class="line">        handlerThread.quit()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="退出循环"><a href="#退出循环" class="headerlink" title="退出循环"></a>退出循环</h2><p>HandlerThread提供两个方法退出循环。</p>
-<h3 id="quit"><a href="#quit" class="headerlink" title="quit"></a>quit</h3><p>将不在接受新的事件加入消息队列<br>清空MessageQueue中所有消息，无论是否是延迟消息</p>
-<h3 id="quitSafely"><a href="#quitSafely" class="headerlink" title="quitSafely"></a>quitSafely</h3><p>将不在接受新的事件加入消息队列<br>清空MessageQueue中所有的延时消息<br>API 18  引入<br><strong>区别：清空消息之前会派发所有的非延迟消息</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * Quits the looper.</span><br><span class="line">    * &lt;p&gt;</span><br><span class="line">    * Causes the &#123;@link #loop&#125; method to terminate without processing any</span><br><span class="line">    * more messages in the message queue.</span><br><span class="line">    * &lt;&#x2F;p&gt;&lt;p&gt;</span><br><span class="line">    * Any attempt to post messages to the queue after the looper is asked to quit will fail.</span><br><span class="line">    * For example, the &#123;@link Handler#sendMessage(Message)&#125; method will return false.</span><br><span class="line">    * &lt;&#x2F;p&gt;&lt;p class&#x3D;&quot;note&quot;&gt;</span><br><span class="line">    * Using this method may be unsafe because some messages may not be delivered</span><br><span class="line">    * before the looper terminates.  Consider using &#123;@link #quitSafely&#125; instead to ensure</span><br><span class="line">    * that all pending work is completed in an orderly manner.</span><br><span class="line">    * &lt;&#x2F;p&gt;</span><br><span class="line">    *</span><br><span class="line">    * @see #quitSafely</span><br><span class="line">    *&#x2F;</span><br><span class="line">   public void quit() &#123;</span><br><span class="line">       mQueue.quit(false);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   &#x2F;**</span><br><span class="line">    * Quits the looper safely.</span><br><span class="line">    * &lt;p&gt;</span><br><span class="line">    * Causes the &#123;@link #loop&#125; method to terminate as soon as all remaining messages</span><br><span class="line">    * in the message queue that are already due to be delivered have been handled.</span><br><span class="line">    * However pending delayed messages with due times in the future will not be</span><br><span class="line">    * delivered before the loop terminates.</span><br><span class="line">    * &lt;&#x2F;p&gt;&lt;p&gt;</span><br><span class="line">    * Any attempt to post messages to the queue after the looper is asked to quit will fail.</span><br><span class="line">    * For example, the &#123;@link Handler#sendMessage(Message)&#125; method will return false.</span><br><span class="line">    * &lt;&#x2F;p&gt;</span><br><span class="line">    *&#x2F;</span><br><span class="line">   public void quitSafely() &#123;</span><br><span class="line">       mQueue.quit(true);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
+                <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>在使用EditText时，根据产品设计，某些地方需要让文字右对齐显示，光标默认也显示在最右边。这个时候我们自然而然想到设置android:gravity=”right” 这个属性，运行在模拟器跟自己的手机上都没出现问题。然后测试拿着手机测试，突然跟你说这个地方有问题，当你看到错位后的界面一脸懵逼。这尼M是怎么出现的？</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI3MTI0ODEyMDQ0?x-oss-process=image/format,png" alt=""></p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h2><p>百度了下，找到两个解决办法：</p>
+<h4 id="1-在布局中添加android-textCursorDrawable-”-null”–-gt-部分手机有效"><a href="#1-在布局中添加android-textCursorDrawable-”-null”–-gt-部分手机有效" class="headerlink" title="1. 在布局中添加android:textCursorDrawable=”@null”–&gt;部分手机有效"></a>1. 在布局中添加android:textCursorDrawable=”@null”–&gt;部分手机有效</h4><h4 id="2-TextView和EditText共用，控制光标位置-–-gt-这也太麻烦了，有没得更好的方法"><a href="#2-TextView和EditText共用，控制光标位置-–-gt-这也太麻烦了，有没得更好的方法" class="headerlink" title="2. TextView和EditText共用，控制光标位置                      –&gt;这也太麻烦了，有没得更好的方法"></a>2. TextView和EditText共用，控制光标位置                      –&gt;这也太麻烦了，有没得更好的方法</h4><p> 既然百度暂时解决不了这个问题，那去官网看看相应的API吧。哈哈，找到两个属性可能会有用。<br> android:textDirection=”rtl” ，试了下不行<br> android:layoutDirection=”rtl” ，居然可以，问题完美解决<br> <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI3MTMzNzMxOTA5?x-oss-process=image/format,png" alt=""><br> <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI3MTMzNzU0NTYz?x-oss-process=image/format,png" alt=""></p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>下载地址：<a href="http://download.csdn.net/download/u010987039/10134195" target="_blank" rel="noopener">http://download.csdn.net/download/u010987039/10134195</a><br>如果解决了大家的问题，记得多评论啊，让更多的人看到。</p>
 
             </div>
             <hr/>
@@ -511,7 +489,7 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.ocrnote.com/2019/01/04/%E8%AE%B0%E5%BD%95%EF%BC%9AHandler%E3%80%81HandlerThread/">https://blog.ocrnote.com/2019/01/04/%E8%AE%B0%E5%BD%95%EF%BC%9AHandler%E3%80%81HandlerThread/</a>
+                    <a href="https://blog.ocrnote.com/2017/11/27/jie-jue-edittext-you-dui-qi-jian-rong-wen-ti-yi-ge-shu-xing-gao-ding/">https://blog.ocrnote.com/2017/11/27/jie-jue-edittext-you-dui-qi-jian-rong-wen-ti-yi-ge-shu-xing-gao-ding/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -716,26 +694,24 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/01/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8F%8D%E5%B0%84/">
+                <a href="/2018/04/19/template-mo-ban-kai-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="动态编程（一）：反射">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Android Studio Template(模板)开发">
                         
-                        <span class="card-title">动态编程（一）：反射</span>
+                        <span class="card-title">Android Studio Template(模板)开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、反射机制1.1概念在运行状态中，对于任意一个实体类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。  
-主要提供了以下功能：  
-
+                            引言Android Studio提供的代码模板可帮助我们减少重复编写同一段代码的负担，而且可以遵循优化后的设计和标准。AS采用的是Apache FreeMarker模板引擎。在网上，关于模板开发的资料比较少，而且Studio版本较低，也缺少
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-01-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-04-19
                         </span>
                         <span class="publish-author">
                             
@@ -755,24 +731,24 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/08/15/%E5%9B%BD%E9%99%85%E5%8C%96-i18n-%E6%95%B0%E5%AD%97/">
+                <a href="/2017/04/20/android-ji-cheng-cordova-yu-crosswalk/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="国际化(i18n)-数字">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Android集成Cordova与Crosswalk'">
                         
-                        <span class="card-title">国际化(i18n)-数字</span>
+                        <span class="card-title">Android集成Cordova与Crosswalk'</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            背景平常在项目中，经常会遇到String和Double间的转换，或者将Double、Float等类型格式化后显示。当我们的项目是直接在国内使用的时候，通过String.format、Double.parseDouble等方法转换通常不会出现
+                            ##1. 介绍###1.1 CordovaCordova是贡献给Apache后的开源项目，是从PhoneGap中抽出的核心代码，是驱动PhoneGap的核心引擎。Adobe将会继续以Cordova加上PhoneGap Build和Adobe
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-04-20
                             </span>
                         <span class="publish-author">
                             

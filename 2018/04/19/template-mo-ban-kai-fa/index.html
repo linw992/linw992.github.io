@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="国际化(i18n)-数字, Android Video ijkplayer Blog Justin">
-    <meta name="description" content="背景平常在项目中，经常会遇到String和Double间的转换，或者将Double、Float等类型格式化后显示。当我们的项目是直接在国内使用的时候，通过String.format、Double.parseDouble等方法转换通常不会出现">
+    <meta name="keywords" content="Android Studio Template(模板)开发, Android Video ijkplayer Blog Justin">
+    <meta name="description" content="引言Android Studio提供的代码模板可帮助我们减少重复编写同一段代码的负担，而且可以遵循优化后的设计和标准。AS采用的是Apache FreeMarker模板引擎。在网上，关于模板开发的资料比较少，而且Studio版本较低，也缺少">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>国际化(i18n)-数字 | I&#39;M Justin</title>
+    <title>Android Studio Template(模板)开发 | I&#39;M Justin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -26,7 +26,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -303,12 +303,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">国际化(i18n)-数字</h1>
+                    <h1 class="description center-align post-title">Android Studio Template(模板)开发</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,17 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-08-15
+                    2018-04-19
                 </div>
                 
 
                 
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.9k
+                </div>
                 
 
                 
@@ -454,86 +459,190 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>平常在项目中，经常会遇到String和Double间的转换，或者将Double、Float等类型格式化后显示。当我们的项目是直接在国内使用的时候，通过String.format、Double.parseDouble等方法转换通常不会出现问题。但是如果产品延伸到国外，通过这种方式通常会抛出异常、结果与实际不符等情况。本篇将整理在其它语言环境下字符和数字在实际使用中遇到的问题和采用的解决办法。  </p>
-<h1 id="语言编码"><a href="#语言编码" class="headerlink" title="语言编码"></a>语言编码</h1><ul>
-<li>国际化：internationalization，由于首尾字母间有18个字符，简称i18n  </li>
-<li>本地化：localization，由于首尾字母间有10个字符，简称l10n  </li>
-<li><a href="https://link.jianshu.com/?t=http://www.loc.gov/standards/iso639-2/php/English_list.php" target="_blank" rel="noopener">ISO-639</a> 标准使用编码定义了国际上常见的语言，每一种语言由两个小写字母表示。</li>
-<li><a href="https://link.jianshu.com/?t=https://www.iso.org/obp/ui/#iso:std:iso:3166:-2:ed-3:v1:en,fr" target="_blank" rel="noopener">ISO-3166</a> 标准使用编码定义了国家/地区，每个国家/地区由两个大写字母表示。</li>
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>Android Studio提供的代码模板可帮助我们减少重复编写同一段代码的负担，而且可以遵循优化后的设计和标准。AS采用的是<a href="http://freemarker.org/" target="_blank" rel="noopener">Apache FreeMarker</a>模板引擎。<br>在网上，关于模板开发的资料比较少，而且Studio版本较低，也缺少实际开发中很多功能的示例（比如说Studio在加入kotlin后，我们怎么生成kotlin的模板）。这篇文章将基于TemplateBuilder模板插件，简化模板生成的难度。<br><strong>环境：</strong><br>Android Studio 3.1.1<br>TemplateBuilder 2.0</p>
+<h1 id="一、TemplateBuilder"><a href="#一、TemplateBuilder" class="headerlink" title="一、TemplateBuilder"></a>一、TemplateBuilder</h1><p>简单介绍下TemplateBuilder的使用。</p>
+<h2 id="1-插件安装"><a href="#1-插件安装" class="headerlink" title="1.插件安装"></a>1.插件安装</h2><p>在Studio菜单栏选择【File】-【Settings】，在左侧菜单中选择【Plugins】，点击【Browse repositories】。在弹出框中输入TemplateBuilder，点击安装并重启Studio后生效。<br><img src="https://img-blog.csdn.net/20180419115829829?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h2 id="2-创建模板"><a href="#2-创建模板" class="headerlink" title="2.创建模板"></a>2.创建模板</h2><h4 id="1-定义模板："><a href="#1-定义模板：" class="headerlink" title="1.定义模板："></a>1.定义模板：</h4><p>这里定义了activityName、textViewName变量，之后在生成模板时，由用户输入。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> $<span class="token punctuation">{</span>activityName<span class="token punctuation">}</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> TextView $<span class="token punctuation">{</span>textViewName<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="2-生成模板"><a href="#2-生成模板" class="headerlink" title="2.生成模板"></a>2.生成模板</h4><p>选中模板文件，按下【ALT + T】（或在Tools下选择Generate Template），配置模板信息<br><img src="https://img-blog.csdn.net/201804191240559?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h5 id="属性说明："><a href="#属性说明：" class="headerlink" title="属性说明："></a>属性说明：</h5><ul>
+<li><strong>Template Category 对应模板的分类，对应选择导入模板时的模板分类，这里默认值是电脑的用户名。</strong></li>
+<li><strong>Template Name 对应模板名称，对应选择导入模板时的模板名称，默认值是当前的Project名称。</strong></li>
+<li><strong>Template Description 对应模板描述信息，对应导入模板时弹出的导入界面的文字描述，默认为空。</strong></li>
+<li><strong>Template Folder 对应生成模板所存放的位置，如果是Mac操作系统则默认为/Applications/Android Studio.app/Contents/plugins/android/lib/templates， Windows系统的话由于差异比较大，就默认为空了，可以自行配置[Android Studio安装目录]/plugins/android/lib/templates（这里只需要配置一次即可，插件将自动保存该位置）。</strong></li>
+<li><strong>Input data 配置模板变量</strong><br>在【Configure Template Data】下点击【add】配置刚才模板中定义的变量，配置完毕后点击【Finish】。<br><img src="https://img-blog.csdn.net/20180419125012700?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>重启Studio后就可使用该自定义模板。<br><img src="https://img-blog.csdn.net/20180419125226632?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><h5 id="关于Input-data的使用，先解释下每个属性对应的含义"><a href="#关于Input-data的使用，先解释下每个属性对应的含义" class="headerlink" title="关于Input data的使用，先解释下每个属性对应的含义"></a>关于Input data的使用，先解释下每个属性对应的含义</h5></li>
+<li><strong>id 变量名，必须和模板中使用的变量名对应，必填</strong></li>
+<li><strong>name 变量简介，必填</strong></li>
+<li><strong>type 变量类型，string和boolean两种，通过下拉框选择，必填</strong></li>
+<li><strong>default 变量对应的默认值，选填</strong></li>
+<li><strong>help 添加该变量时的提示信息，选填</strong><h1 id="二、定义模板"><a href="#二、定义模板" class="headerlink" title="二、定义模板"></a>二、定义模板</h1>这里我使用TemplateBuilder插件生成mvp的模板。通过修改相关的属性，实现Activity和layout动态生成，并在AndroidManifest.xml中注册。最后添加kotlin的模板配置，这样模板最终完成。<h2 id="1-创建Java模板"><a href="#1-创建Java模板" class="headerlink" title="1.创建Java模板"></a>1.创建Java模板</h2>首先创建一个MVP的Activity，将动态的属性声明为变量。<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> $<span class="token punctuation">{</span>packageName<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
 </ul>
-<h3 id="常用语言编码"><a href="#常用语言编码" class="headerlink" title="常用语言编码"></a>常用语言编码</h3><table>
-<thead>
-<tr>
-<th>国家/地区</th>
-<th>语言编码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>中文</td>
-<td>zh</td>
-</tr>
-<tr>
-<td>中文(简体)</td>
-<td>zh-CN</td>
-</tr>
-<tr>
-<td>中文(香港)</td>
-<td>zh-HK</td>
-</tr>
-<tr>
-<td>中文(澳门)</td>
-<td>zh-MO</td>
-</tr>
-<tr>
-<td>英语</td>
-<td>en</td>
-</tr>
-<tr>
-<td>英语(美国)</td>
-<td>en-us</td>
-</tr>
-<tr>
-<td>法语</td>
-<td>fr</td>
-</tr>
-<tr>
-<td>德语</td>
-<td>de</td>
-</tr>
-<tr>
-<td>日语</td>
-<td>ja</td>
-</tr>
-<tr>
-<td>韩语</td>
-<td>ko</td>
-</tr>
-<tr>
-<td>俄语</td>
-<td>ru</td>
-</tr>
-</tbody></table>
-<h1 id="数字格式化"><a href="#数字格式化" class="headerlink" title="数字格式化"></a>数字格式化</h1><p>使用Kotlin作为示例代码。没做特殊说明，都采用默认中文作为环境语言。  </p>
-<h2 id="Double转String"><a href="#Double转String" class="headerlink" title="Double转String"></a>Double转String</h2><h4 id="使用String-format："><a href="#使用String-format：" class="headerlink" title="使用String.format："></a>使用String.format：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">val doubleValue &#x3D; 1258.6999999999</span><br><span class="line">val doubleStr1&#x3D;&quot;$doubleValue&quot;</span><br><span class="line">val doubleStr2&#x3D;String.format(&quot;%f&quot;,doubleValue)</span><br><span class="line">val doubleStr3&#x3D;String.format(&quot;%1\$s&quot;,doubleValue)</span><br><span class="line">&#x2F;&#x2F;保留小数点后五位</span><br><span class="line">val doubleStr4&#x3D;String.format(&quot;%.3f&quot;,doubleValue)</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">**当语言环境为中文时，结果：**    </span><br><span class="line">doubleStr2和doubleStr4采用四舍五入的方式，对字符转进行了处理。  </span><br><span class="line">![这里写图片描述](https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;20180815151855351?watermark&#x2F;2&#x2F;text&#x2F;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70)</span><br><span class="line">**当语言环境为英文时，结果：**    </span><br><span class="line">doubleStr2和doubleStr4采用四舍五入的方式，对字符转进行了处理。  </span><br><span class="line">千分位没有分隔符。  </span><br><span class="line">![这里写图片描述](https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;20180815152422333?watermark&#x2F;2&#x2F;text&#x2F;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70)</span><br><span class="line">**当语言环境为俄文时，结果：**    </span><br><span class="line">doubleStr2和doubleStr4采用四舍五入的方式，对字符转进行了处理。    </span><br><span class="line">千分位没有分隔符。    </span><br><span class="line">doubleStr1和doubleStr3结果与俄文格式不符。    </span><br><span class="line">![这里写图片描述](https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;2018081515212057?watermark&#x2F;2&#x2F;text&#x2F;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70)</span><br><span class="line">如果不考虑精度的情况从上面三种情况可以看出，将有小数的数字转换为字符串展现出来，需要使用 **String.format(&quot;%f&quot;,doubleValue)**或**String.format(&quot;%.3f&quot;,doubleValue)**的方式。  </span><br><span class="line">#### 使用NumberFormat：</span><br><span class="line">使用NumberFormat，我们可以设置保留多少小数位，设置结果计算方式（RoundingMode）等</span><br></pre></td></tr></table></figure>
-<p>fun getDoubleStr(value: Double, digits: Int, roundingMode: RoundingMode = RoundingMode.DOWN, locale: Locale = Locale.CHINA): String {<br>            try {<br>                val format = NumberFormat.getNumberInstance(locale)<br>                //等同于NumberFormat.getNumberInstance<br>                //val format = DecimalFormat.getNumberInstance(locale)<br>                //设置小数点后最小位数<br>                format.minimumFractionDigits = digits<br>                //设置小数点后最大位数<br>                format.maximumFractionDigits = digits<br>                format.roundingMode = roundingMode<br>                //format.isGroupingUsed=false  //取消整数位分隔符<br>                return format.format(value)<br>            } catch (e: Exception) {<br>                e.printStackTrace()<br>            }<br>            return “$value”<br>        }<br> …<br> private val digits = 5<br>//输出中文字符串<br>val chineseStr = DoubleNationalUtil.getDoubleStr(doubleValue, digits, RoundingMode.DOWN,Locale.CHINA)<br>//输出俄文字符串<br>val russianStr = DoubleNationalUtil.getDoubleStr(doubleValue, digits, RoundingMode.DOWN,russianLocale)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">**结果：**  </span><br><span class="line">![这里写图片描述](https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;20180815161603487?watermark&#x2F;2&#x2F;text&#x2F;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70)</span><br><span class="line">#### 使用DecimalFormat：</span><br><span class="line">占位符有0和#，当使用0的时候会严格按照样式来进行匹配，不够的时候会补0，而使用#时会将前后的0进行忽略。</span><br><span class="line">DecimalFormat还可以对展示的字符样式进行自定义，比如设置小数分隔符、整数位分隔符用什么符号表示（Char类型），这里不做补充说明。</span><br></pre></td></tr></table></figure>
-<pre><code>fun getDefaultDoubleStr(value: Double, partten: String, locale: Locale = Locale.CHINA): String {
-    try {
-        //val format = DecimalFormat(partten)
-        val format = DecimalFormat.getNumberInstance(locale) as DecimalFormat
-        format.applyPattern(partten)
-        return format.format(value)
-    } catch (e: Exception) {
-        e.printStackTrace()
+<p>import android.os.Bundle;<br>import com.blackbox.medicalpension.common.mvp.base.BaseCommonActivity;<br>import com.blackbox.medicalpension.common.mvp.mvp.BasePresenter;</p>
+<p>import org.jetbrains.annotations.Nullable;</p>
+<p>import java.util.List;</p>
+<p>public class ${activityClass} extends BaseCommonActivity{</p>
+<pre><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.${layoutName});
+    initTitleWithBack(&quot;${titleName}&quot;);
+}
+
+@Nullable
+@Override
+public List&lt;BasePresenter&lt;?&gt;&gt; createPresenter() {
+    return null;
+}</code></pre><p>}</p>
+<pre><code>创建对应的Layout布局文件
+</code></pre><?xml version="1.0" encoding="utf-8"?>
+<p>&lt;android.support.constraint.ConstraintLayout xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;" target="_blank" rel="noopener">http://schemas.android.com/apk/res/android&quot;</a><br>    xmlns:app=”<a href="http://schemas.android.com/apk/res-auto&quot;" target="_blank" rel="noopener">http://schemas.android.com/apk/res-auto&quot;</a><br>    xmlns:tools=”<a href="http://schemas.android.com/tools&quot;" target="_blank" rel="noopener">http://schemas.android.com/tools&quot;</a><br>    android:layout_width=”match_parent”<br>    android:layout_height=”match_parent”<br>    android:background=”@color/white”&gt;</p>
+<pre><code>&lt;include
+    android:id=&quot;@+id/include_layout&quot;
+    layout=&quot;@layout/lin_title&quot;
+    android:layout_width=&quot;0dp&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    app:layout_constraintLeft_toLeftOf=&quot;parent&quot;
+    app:layout_constraintRight_toRightOf=&quot;parent&quot;
+    app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;</code></pre><p>&lt;/android.support.constraint.ConstraintLayout&gt;</p>
+<pre><code>## 2.模板生成
+选中两个模板文件，点击【ALT + T】，弹出【Configure Template Data】窗口。定义activityClass、layoutName、titleName三个变量，并【Finish】，生成模板。
+![这里写图片描述](https://img-blog.csdn.net/20180419130815864?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+模板文件存放在...\Android Studio\plugins\android\lib\templates下
+![这里写图片描述](https://img-blog.csdn.net/20180419131020722?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+模板文件后缀名都是以【.ftl】结尾。
+
+ - globals.xml.ftl 全局变量文件 存放的是一些全局变量
+ - recipe.xml.ftl 配置要引用的模板路径以及生成文件的路径
+ - template.xml 模板的配置信息,以及要输入的参数.定义了模板的流程框架 基本结构
+ - template_blank_activity.png 显示的缩略图（只是展示用）
+ - LinActivity.java.ftl Activity模板文件
+
+#### 1.修改配置
+进入到...\Android Studio\plugins\android\lib\templates\linw9目录下
+##### 1.修改template.xml文件
+为方便用户输入Activity名称或Layout名称，自动提示Layout或Activity名称，需要在文件中添加两个属性：
+constraints=&quot;class|unique|nonempty&quot;
+suggest=&quot;\${layoutToActivity(layoutName)}&quot;
+suggest=&quot;\${activityToLayout(activityClass)}&quot;</code></pre><?xml version="1.0"?>
+<p><template
+    format="5"
+    revision="5"
+    name="LinMvpActivity"
+    minApi="7"
+    minBuildApi="14"
+    description="Mvp Activity"></p>
+<pre><code>&lt;category value=&quot;linw9&quot; /&gt;
+&lt;formfactor value=&quot;Mobile&quot; /&gt;
+
+&lt;!-- input data --&gt;
+
+
+&lt;parameter
+    id=&quot;activityClass&quot;
+    name=&quot;Activity Name&quot;
+    type=&quot;string&quot;
+    constraints=&quot;class|unique|nonempty&quot;
+    suggest=&quot;${layoutToActivity(layoutName)}&quot;
+    default=&quot;MvpActivity&quot;
+    help=&quot;&quot; /&gt;
+
+&lt;parameter
+    id=&quot;layoutName&quot;
+    name=&quot;Layout Name&quot;
+    type=&quot;string&quot;
+    constraints=&quot;layout|unique|nonempty&quot;
+    suggest=&quot;${activityToLayout(activityClass)}&quot;
+    default=&quot;activity_mvp&quot;
+    help=&quot;&quot; /&gt;
+
+&lt;parameter
+    id=&quot;titleName&quot;
+    name=&quot;Title Name&quot;
+    type=&quot;string&quot;
+    default=&quot;Title&quot;
+    help=&quot;&quot; /&gt;
+
+&lt;!-- 128x128 thumbnails relative to com.puke.template.xml --&gt;
+&lt;thumbs&gt;
+    &lt;!-- default thumbnail is required --&gt;
+    &lt;thumb&gt;template_cover.png&lt;/thumb&gt;
+&lt;/thumbs&gt;
+
+&lt;globals file=&quot;globals.xml.ftl&quot; /&gt;
+&lt;execute file=&quot;recipe.xml.ftl&quot; /&gt;</code></pre></template>
+```
+##### 2.修改AndroidManifest.xml文件
+进入到...\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity\root 目录下，打开AndroidManifest.xml.ftl文件，修改内容让Studio自动注册Activity。需要注意的是：需要对AndroidManifest进行代码格式化（Format），不然使用的时候Studio可能会提示Merge。
+只针对Java代码的模板到此结束，重新启动Studio后即可使用该模板。
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    package=&quot;${packageName}&quot;&gt;
+
+    &lt;application&gt;
+        &lt;activity android:name=&quot;${packageName}.${activityClass}&quot;&gt;
+
+        &lt;/activity&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;</code></pre><h5 id="3-增加Kotlin模板"><a href="#3-增加Kotlin模板" class="headerlink" title="3.增加Kotlin模板"></a>3.增加Kotlin模板</h5><p>在网上，我没有查找到关于Kotlin模板配置的相关文章，这里给大家讲解下我的方法。<br>我是通过学习Studio自带的模板，从中找到了配置Kotlin模板的方法，仅供大家参考。</p>
+<h6 id="1-创建Kotlin模板"><a href="#1-创建Kotlin模板" class="headerlink" title="1.创建Kotlin模板"></a>1.创建Kotlin模板</h6><p>进入到…\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity\root\src\app_package目录下，直接创建kotlin模板</p>
+<pre><code>package ${packageName}
+
+import android.os.Bundle
+import com.blackbox.medicalpension.common.mvp.base.BaseCommonActivity
+import com.blackbox.medicalpension.common.mvp.mvp.BasePresenter
+
+import kotlinx.android.synthetic.main.${layoutName}.*
+
+
+
+class ${activityClass} : BaseCommonActivity(){
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.${layoutName})
+        initTitleWithBack(&quot;${titleName}&quot;)
     }
-    return &quot;$value&quot;
-}</code></pre><p>…<br>        val defaultStr=DoubleNationalUtil.getDefaultDoubleStr(doubleValue,”#0.00”)<br>        val defaultStr2=DoubleNationalUtil.getDefaultDoubleStr(doubleValue,”#0.00#”,russianLocale)<br>        //设置整数位分隔符<br>        val defaultStr3=DoubleNationalUtil.getDefaultDoubleStr(doubleValue,”#,##0.00#”)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">**结果：**  </span><br><span class="line">![这里写图片描述](https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;20180815162340608?watermark&#x2F;2&#x2F;text&#x2F;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70)</span><br><span class="line">## String转Double  </span><br><span class="line">将String转换为Double，这里很容易抛出异常或结果与预期不一致的情况。比如：    </span><br><span class="line"></span><br><span class="line"> - 不同的语言间进行转换  </span><br><span class="line"> - 当前程序语言和系统语言不一致，使用Double. parseDouble方法  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">#### 使用Double. parseDouble：</span><br></pre></td></tr></table></figure>
-<p>try {<br>        //chineseStr=1,258.69999<br>        java.lang.Double.parseDouble(chineseStr)<br>        //russianStr=1 258,69999<br>        java.lang.Double.parseDouble(russianStr)<br>    }catch (e:Exception){<br>        e.printStackTrace()<br>    }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">这里不管是先转换中文String还是俄文String，结果都会抛出异常。  </span><br><span class="line">不管是中文环境下，还是俄文环境下，结果都会抛出异常。  </span><br><span class="line">所以不建议大家采用Double. parseDouble方法将String转换为Double  </span><br><span class="line">![这里写图片描述](https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;20180815164638158?watermark&#x2F;2&#x2F;text&#x2F;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70)</span><br><span class="line">#### 使用NumberFormat：</span><br><span class="line">下面使用NumberFormat转换，查看语言不一致的输出结果。  </span><br><span class="line">为方便阅读，命名方式没有按照驼峰命名，请大家忽略。</span><br></pre></td></tr></table></figure>
-<p>fun getDouble(value: String, locale: Locale = Locale.CHINA): Double {<br>            try {<br>                val format = NumberFormat.getNumberInstance(locale)<br>                //等同于NumberFormat.getNumberInstance<br>                //val format = DecimalFormat.getNumberInstance(locale)<br>                return format.parse(value).toDouble()<br>            } catch (e: Exception) {<br>                e.printStackTrace()<br>            }<br>            //真实情况请勿返回0.0<br>            return 0.0<br>        }<br>…<br>        //输出中文格式化字符串<br>        val chineseStr = DoubleNationalUtil.getDoubleStr(doubleValue, digits, RoundingMode.DOWN,Locale.CHINA)<br>        //中文转中文double<br>        val chineseStr_chinese = DoubleNationalUtil.getDouble(chineseStr, Locale.CHINA)<br>        //中文转俄文double<br>        val chineseStr_russian = DoubleNationalUtil.getDouble(chineseStr, russianLocale)<br>        //中文转英语double<br>        val chineseStr_english = DoubleNationalUtil.getDouble(chineseStr, Locale.US)<br>        //输出俄文格式化字符串<br>        val russianStr = DoubleNationalUtil.getDoubleStr(doubleValue, digits, RoundingMode.DOWN,russianLocale)<br>        //俄文转中文double<br>        val russianStr_chinese = DoubleNationalUtil.getDouble(russianStr, Locale.CHINA)<br>        //俄文转俄文double<br>        val russianStr_russian = DoubleNationalUtil.getDouble(russianStr, russianLocale)<br>        //俄文转英语double<br>        val russianStr_english = DoubleNationalUtil.getDouble(russianStr, Locale.US)</p>
-<p>```<br><strong>结果：</strong><br>只有语言相互对应，才能保证输出结果是正确的。<br><img src="https://img-blog.csdn.net/20180815170540319?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p>涉及到小数或者金额的计算，请使用BigDecimal类。<br>喜欢本篇的朋友，不要忘记点赞哟。</p>
+
+     override fun createPresenter(): MutableList&lt;BasePresenter&lt;*&gt;&gt; ?{
+        return null
+    }
+}</code></pre><h6 id="2-修改recipe-xml-ftl"><a href="#2-修改recipe-xml-ftl" class="headerlink" title="2.修改recipe.xml.ftl"></a>2.修改recipe.xml.ftl</h6><p>进入到…\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity目录下，打开recipe.xml.ftl<br>将java改为${ktOrJavaExt}变量。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;recipe&gt;
+
+    &lt;instantiate from=&quot;root/src/app_package/LinActivity.${ktOrJavaExt}.ftl&quot;
+        to=&quot;${escapeXmlAttribute(srcOut)}/${activityClass}.${ktOrJavaExt}&quot; /&gt;
+
+    &lt;instantiate from=&quot;root/res/layout/activity_lin.xml.ftl&quot;
+        to=&quot;${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml&quot; /&gt;
+
+     &lt;merge from=&quot;root/AndroidManifest.xml.ftl&quot;
+           to=&quot;${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml&quot; /&gt;
+
+&lt;/recipe&gt;</code></pre><h6 id="3-修改globals-xml-ftl"><a href="#3-修改globals-xml-ftl" class="headerlink" title="3.修改globals.xml.ftl"></a>3.修改globals.xml.ftl</h6><p>进入到…\Android Studio\plugins\android\lib\templates\linw9\LinMvpActivity目录下，打开globals.xml.ftl<br>添加ktOrJavaExt变量声明：<br><img src="https://img-blog.csdn.net/20180419134151226?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA5ODcwMzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;globals&gt;
+    &lt;#assign generateKotlin=(((includeKotlinSupport!false) || (language!&#39;Java&#39;)?string == &#39;Kotlin&#39;))&gt;
+    &lt;global id=&quot;generateKotlin&quot; type=&quot;boolean&quot; value=&quot;${generateKotlin?string}&quot; /&gt;
+    &lt;global id=&quot;ktOrJavaExt&quot; type=&quot;string&quot; value=&quot;${generateKotlin?string(&#39;kt&#39;,&#39;java&#39;)}&quot; /&gt;
+
+    &lt;global id=&quot;resOut&quot; value=&quot;${resDir}&quot; /&gt;
+    &lt;global id=&quot;srcOut&quot; value=&quot;${srcDir}/${slashedPackageName(packageName)}&quot; /&gt;
+    &lt;global id=&quot;relativePackage&quot; value=&quot;&lt;#if relativePackage?has_content&gt;${relativePackage}&lt;#else&gt;${packageName}&lt;/#if&gt;&quot; /&gt;
+
+
+&lt;/globals&gt;</code></pre><h6 id="4-结束"><a href="#4-结束" class="headerlink" title="4.结束"></a>4.结束</h6><p>重启Studio后，就可以生成Java或Kotlin的代码。对于写的不好的地方，希望大家多提建议。</p>
+<h1 id="三、其它"><a href="#三、其它" class="headerlink" title="三、其它"></a>三、其它</h1><p>源码地址：<a href="https://download.csdn.net/download/u010987039/10360074" target="_blank" rel="noopener">https://download.csdn.net/download/u010987039/10360074</a><br>码云地址：<a href="https://gitee.com/personlin/emplate_java_kotlin" target="_blank" rel="noopener">https://gitee.com/personlin/emplate_java_kotlin</a><br>GitHub地址：<a href="https://github.com/linw992/Template" target="_blank" rel="noopener">https://github.com/linw992/Template</a></p>
 
             </div>
             <hr/>
@@ -559,7 +668,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.ocrnote.com/2018/08/15/%E5%9B%BD%E9%99%85%E5%8C%96-i18n-%E6%95%B0%E5%AD%97/">https://blog.ocrnote.com/2018/08/15/%E5%9B%BD%E9%99%85%E5%8C%96-i18n-%E6%95%B0%E5%AD%97/</a>
+                    <a href="https://blog.ocrnote.com/2018/04/19/template-mo-ban-kai-fa/">https://blog.ocrnote.com/2018/04/19/template-mo-ban-kai-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -764,26 +873,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/01/04/%E8%AE%B0%E5%BD%95%EF%BC%9AHandler%E3%80%81HandlerThread/">
+                <a href="/2018/06/06/mei-tuan-walle-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="记录：Handler、HandlerThread">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="美团Walle使用">
                         
-                        <span class="card-title">记录：Handler、HandlerThread</span>
+                        <span class="card-title">美团Walle使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Handler相关类
-Looper:  一个线程可以产生一个 Looper 对象，由它来管理此线程里的 MessageQueue( 消息队列 )和对消息进行循环。
-Handler:  你可以构造 Handler 对象来与 Looper 沟通
+                            Walle打包相关链接GitHub：https://github.com/Meituan-Dianping/walle个人代码：https://github.com/linw992/Walle-VasDolly/tree/walle  
+介
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-01-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-06-06
                         </span>
                         <span class="publish-author">
                             
@@ -803,25 +911,24 @@ Handler:  你可以构造 Handler 对象来与 Looper 沟通
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/06/%E7%BE%8E%E5%9B%A2Walle%E4%BD%BF%E7%94%A8/">
+                <a href="/2017/11/27/jie-jue-edittext-you-dui-qi-jian-rong-wen-ti-yi-ge-shu-xing-gao-ding/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="美团Walle使用">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="'解决EditText右对齐兼容问题，一个属性搞定'">
                         
-                        <span class="card-title">美团Walle使用</span>
+                        <span class="card-title">'解决EditText右对齐兼容问题，一个属性搞定'</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Walle打包相关链接GitHub：https://github.com/Meituan-Dianping/walle个人代码：https://github.com/linw992/Walle-VasDolly/tree/walle  
-介
+                            1.问题描述在使用EditText时，根据产品设计，某些地方需要让文字右对齐显示，光标默认也显示在最右边。这个时候我们自然而然想到设置android:gravity=”right” 这个属性，运行在模拟器跟自己的手机上都没出现问题。然后测试
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-11-27
                             </span>
                         <span class="publish-author">
                             
